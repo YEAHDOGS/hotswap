@@ -15,8 +15,8 @@ Case, spaces and punctuation are ignored, so `Money 24` finds `money24` and `We 
 
 1. Clone this repo:
 
-       git clone https://github.com/YEAHDOGS/Hotswap-by-DOGS.git
-       cd Hotswap-by-DOGS
+       git clone https://github.com/YEAHDOGS/hotswap.git
+       cd hotswap
 
 2. Install the package:
 
@@ -33,8 +33,8 @@ Case, spaces and punctuation are ignored, so `Money 24` finds `money24` and `We 
 
 ### From source
 
-    git clone https://github.com/YEAHDOGS/Hotswap-by-DOGS.git
-    cd Hotswap-by-DOGS
+    git clone https://github.com/YEAHDOGS/hotswap.git
+    cd hotswap
     npm test
     npm run package
     code --install-extension hotswap-0.2.1.vsix
