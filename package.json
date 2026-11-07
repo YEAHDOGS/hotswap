@@ -1,0 +1,58 @@
+{
+  "name": "hotswap",
+  "displayName": "Hotswap",
+  "description": "Jump between sibling project folders by typing their name.",
+  "version": "0.2.1",
+  "publisher": "brando",
+  "private": true,
+  "engines": { "vscode": "^1.90.0" },
+  "categories": ["Other"],
+  "main": "./extension.js",
+  "activationEvents": ["onStartupFinished"],
+  "scripts": {
+    "test": "node --test test/",
+    "package": "npx --yes @vscode/vsce package --allow-missing-repository --skip-license"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "hotswap.swap",
+        "title": "Swap Project",
+        "category": "Hotswap",
+        "icon": "$(arrow-swap)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "hotswap.swap",
+          "when": "view == workbench.explorer.fileView",
+          "group": "navigation@-1"
+        }
+      ]
+    },
+    "keybindings": [
+      { "command": "hotswap.swap", "key": "ctrl+alt+p" }
+    ],
+    "configuration": {
+      "title": "Hotswap",
+      "properties": {
+        "hotswap.projectsRoot": {
+          "type": "string",
+          "default": "",
+          "description": "Folder containing your projects. Leave empty to use the parent of the current folder."
+        },
+        "hotswap.windowMode": {
+          "type": "string",
+          "enum": ["new", "same"],
+          "enumDescriptions": [
+            "Keep one window per project. Jumps to the project's window if it is open, otherwise opens a new one. Running terminals keep running.",
+            "Replace the current window with the project. Running terminals in that window stop."
+          ],
+          "default": "new",
+          "description": "How Hotswap opens the project you pick."
+        }
+      }
+    }
+  }
+}
